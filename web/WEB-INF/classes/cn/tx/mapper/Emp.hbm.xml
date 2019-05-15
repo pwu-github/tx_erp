@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cn.tx.model.Emp" table="emp" schema="tx_erp">
+        <id name="empId">
+            <column name="emp_id" sql-type="int(10)"/>
+            <generator class="identity"/>
+        </id>
+        <!--<property name="depId">-->
+            <!--<column name="dep_id" sql-type="int(10)" not-null="true"/>-->
+        <!--</property>-->
+        <property name="name">
+            <column name="name" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="username">
+            <column name="username" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="tel">
+            <column name="tel" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="gender">
+            <column name="gender" sql-type="int(10)" not-null="true"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="birthday">
+            <column name="birthday" sql-type="date(10)" not-null="true"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(32)" length="32" not-null="true"/>
+        </property>
+        <!-- 指定多对一关系，一个部门多个员工-->
+        <many-to-one name="dep" column="dep_id"/>
+    </class>
+</hibernate-mapping>

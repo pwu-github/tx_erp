@@ -1,0 +1,22 @@
+package cn.tx.service.impl;
+
+import cn.tx.dao.DemoDao;
+import cn.tx.model.Demo;
+import cn.tx.query.DemoQuery;
+import cn.tx.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+public class DemoServiceImpl extends BaseServiceImpl<Demo,DemoQuery> implements DemoService {
+
+    @Autowired
+    private DemoDao demoDao;
+
+    public void setDemoDao(DemoDao demoDao) {
+        this.demoDao = demoDao;
+        this.baseDao = demoDao;
+    }
+
+
+}
